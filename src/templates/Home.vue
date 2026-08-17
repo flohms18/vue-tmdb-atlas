@@ -27,7 +27,7 @@ onMounted(() => {
 
 <template>
     <div>
-        <h1 class="text-3xl font-bold underline">
+        <h1 class="text-3xl font-bold bg-dark-brand underline">
     Hello world!
   </h1>
     </div>

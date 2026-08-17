@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.19.0",
     "vue": "rc"
   },
   "devDependencies": {

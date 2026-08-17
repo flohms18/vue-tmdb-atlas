@@ -3,10 +3,12 @@ import { onMounted } from 'vue';
 import axios from 'axios';
 
 
+
+
 onMounted(() => {
     function james(bond){
         bond = 'Casino Royale';
-        console.log(bond)
+        console.log(import.meta.env.DB_PASSWORD)
     }
 
     james()

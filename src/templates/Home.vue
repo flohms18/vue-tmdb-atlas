@@ -8,14 +8,24 @@ import axios from 'axios';
 onMounted(() => {
     function james(bond){
         bond = 'Casino Royale';
-        console.log(import.meta.env.DB_PASSWORD)
+        console.log(import.meta.env.VITE_TMDB_API_KEY)
     }
 
     james()
 
-    function callAPI() {
-        axios.get('https://jsonplaceholder.typicode.com/users')
+    function callAPI(api_key) {
+        api_key = import.meta.env.VITE_TMDB_API_KEY
+        const options = {
+            method : 'GET',
+            url : 'https://api.themoviedb.org/3/movie/popular',
+            headers : {
+                accept : 'application/json', Authorization : 'Bearer ' + api_key
+            }
+        };
+        axios
+            .request(options)
             .then(res => console.log(res.data))
+            .catch(err => console.error(err));
     }
 
     callAPI()

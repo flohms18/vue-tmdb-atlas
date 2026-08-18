@@ -31,17 +31,19 @@ onMounted(() => {
     callAPI()
 })
 
+const model = defineModel()
+
+
 
 </script>
 
 
 <template>
-    <div class="flex flex-col h-screen bg-dark-brand w-screen text-center py-5 text-4xl">
-        <h1 class="text-blue-brand font-display">TMDB App</h1>
+    <div class="flex flex-col w-screen text-center py-5 text-4xl">
+        <h1 class="text-blue-brand font-display">TMDB App</h1>  
+           <span>My input</span> <input v-model="model">
+           {{ model }}
 
-        
-        
+
     </div>
-
-    <v-text-field label="Label"></v-text-field>
 </template>

@@ -26,9 +26,8 @@ onMounted(() => {
 
 
 <template>
-    <div>
-        <h1 class="text-3xl font-bold bg-dark-brand underline">
-    Hello world!
-  </h1>
+    <div class="flex flex-col h-screen bg-dark-brand w-screen text-center py-5 text-4xl">
+        <h1 class="text-blue-brand">TMDB App</h1>
+        
     </div>
 </template>

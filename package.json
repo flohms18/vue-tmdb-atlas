@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "axios": "^1.19.0",
-    "vue": "rc"
+    "vue": "rc",
+    "vuetify": "^4.1.10"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

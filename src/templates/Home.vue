@@ -13,11 +13,17 @@ onMounted(() => {
 
     james()
 
-    function callAPI(api_key) {
+
+    
+
+    
+})
+
+function callAPI(api_key) {
         api_key = import.meta.env.VITE_TMDB_API_KEY
         const options = {
             method : 'GET',
-            url: 'https://api.themoviedb.org/3/search/movie?query=inception&include_adult=false&language=en-US&page=1',
+            url: 'https://api.themoviedb.org/3/search/movie?query=' + searchMovie + '&include_adult=false&language=en-US&page=1',
             headers : {
                 accept : 'application/json', Authorization : 'Bearer ' + api_key
             }
@@ -28,10 +34,7 @@ onMounted(() => {
             .catch(err => console.error(err));
     }
 
-    callAPI()
-})
-
-const model = defineModel()
+const searchMovie = defineModel()
 
 
 
@@ -43,7 +46,7 @@ const model = defineModel()
         <h1 class="text-blue-brand font-display">TMDB App</h1>  
            <span>My input</span> <input v-model="model">
            {{ model }}
-
+            <button type="button" @click="callAPI()">Click Me!</button> 
 
     </div>
 </template>

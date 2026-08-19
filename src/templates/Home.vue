@@ -17,6 +17,7 @@ function callAPI() {
         axios
             .request(options)
             .then(res => item.value = res.data.results)
+            .then(res => console.log(res))
             .catch(err => console.error(err));
     }
 
@@ -32,11 +33,25 @@ const searchMovie = defineModel()
         <h1 class="text-blue-brand font-display">TMDB App</h1>
            <span>My input</span> <input v-model="searchMovie">
             <button type="button" @click="callAPI()">Click Me!</button>
-            <ul>
-                <li v-for="movie in item" :key="movie.id">
-                    {{ movie.title }} ({{ movie.release_date?.slice(0, 4) }})
-                </li>
-            </ul>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4 text-left">
+                <div v-for="movie in item" :key="movie.id" class="flex flex-col">
+                    <img
+                        v-if="movie.poster_path"
+                        :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`"
+                        :alt="movie.title"
+                        class="w-full aspect-2/3 object-cover rounded-lg"
+                    >
+                    <div v-else class="w-full aspect-2/3 rounded-lg bg-dark-brand/10 flex items-center justify-center text-sm">
+                        No poster
+                    </div>
+                    <p class="mt-2 text-base font-display truncate">{{ movie.title }}</p>
+                    <p class="text-sm text-dark-brand/70">{{ movie.release_date }}</p>
+                </div>
+            </div>
 
     </div>
+
+    
+
+    
 </template>

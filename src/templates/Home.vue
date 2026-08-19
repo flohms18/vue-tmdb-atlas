@@ -33,14 +33,14 @@ const searchMovie = defineModel()
 
 
 <template>
-    <div class="flex flex-col items-center py-5 w-screen bg-dark-brand items-center h-screen">
+    <div class="flex flex-col items-center py-5 w-screen bg-dark-brand items-center min-h-screen">
         <h1 class="text-blue-brand font-display text-center text-4xl py-20">TMDB App</h1>
-           <p class="text-white-brand text-center font-display pt-5">Enter the movie's name</p> 
+           <p class="text-white-brand text-center font-display pt-5 text-xl">Enter the movie's name</p> 
            <input class="max-w-2xs placeholder:text-gray-500 w-3xs pl-3 text-white-brand outline-gray-600 mt-5 rounded-md" v-model="searchMovie" placeholder="Dune">
-            <button type="button" @click="callAPI()" class="text-blue-brand font-display pt-5">Search</button>
+            <button type="button" @click="callAPI()" class="text-blue-brand font-display mt-5 px-6 py-2 flex items-center justify-center rounded-md border border-blue-brand">Search</button>
             
             
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4 text-left">
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4 text-center">
                 <div v-for="movie in item" :key="movie.id" class="flex flex-col">
                     <img
                         v-if="movie.poster_path"
@@ -48,12 +48,12 @@ const searchMovie = defineModel()
                         :alt="movie.title"
                         class="w-full aspect-2/3 object-cover rounded-lg"
                     >
-                    <div v-else class="w-full aspect-2/3 rounded-lg bg-dark-brand/10 flex items-center justify-center text-sm">
+                    <div v-else class="w-full aspect-2/3 rounded-lg bg-dark-brand/10 flex items-center justify-center text-sm text-white-brand">
                         No poster
                     </div>
-                    <p class="mt-2 text-base font-display truncate">{{ movie.title }}</p>
-                    <p class="text-sm text-dark-brand/70">{{ movie.release_date }}</p>
-                    <button @click="">Watch the trailer</button>
+                    <p class="mt-2 text-base font-display truncate text-blue-brand font-display">{{ movie.title }}</p>
+                    <p class="text-sm text-white-brand font-display">{{ movie.release_date }}</p>
+                    <button class="text-white-brand">Watch the trailer</button>
                 </div>
             </div>
     </div>
